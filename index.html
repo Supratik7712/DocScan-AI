@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f3ee" />
+    <title>DocScan AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-lockup">
+          <div class="brand-mark"><span></span><span></span><span></span></div>
+          <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation menu" aria-expanded="false">☰</button>
+          <div><strong>DocScan</strong><small>AI document intelligence</small></div>
+        </div>
+        <nav class="main-nav" aria-label="Primary navigation">
+          <button class="nav-item active" data-view="overview"><span class="nav-icon">◈</span>Overview</button>
+          <button class="nav-item" data-view="documents"><span class="nav-icon">▤</span>Documents <b id="documentCount">0</b></button>
+          <button class="nav-item" data-view="findings"><span class="nav-icon">⌁</span>Findings <b class="alert-count" id="findingCount">0</b></button>
+        </nav>
+        <div class="sidebar-bottom">
+          <button class="nav-item" id="settingsBtn"><span class="nav-icon">⚙</span>Settings</button>
+          <div class="user-row"><div class="avatar" id="profileAvatar">GU</div><div><strong id="profileName">Guest User</strong><small id="profileRole">Local workspace</small></div><button class="more" id="profileMenuBtn" aria-label="Open profile menu" aria-expanded="false">•••</button></div>
+          <div class="profile-menu" id="profileMenu" hidden><button id="menuAccountBtn">Account details</button><button id="menuSettingsBtn">AI settings</button><button id="menuSignOutBtn">Sign out</button></div>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <div><span class="eyebrow">THURSDAY, SEPTEMBER 24, 2026</span><h1 id="pageTitle">Good morning, Alex <span>✦</span></h1></div>
+          <div class="top-actions"><span class="auth-state" id="authState">Local workspace</span><button class="primary-btn" id="authBtn">Sign in</button><button class="primary-btn" id="uploadTopBtn">＋ Upload document</button></div>
+        </header>
+
+        <section class="hero-strip">
+          <div><span class="eyebrow accent">AI WORKSPACE</span><h2>Clarity from every clause.</h2><p>Extract what matters from your business documents, with every answer anchored to the source.</p></div>
+          <div class="hero-stats"><div><strong>94<span>%</span></strong><small>avg. confidence</small></div><div><strong>—</strong><small>analysis time</small></div></div>
+        </section>
+
+        <section class="metrics-grid">
+          <article class="metric-card"><div class="metric-top"><span class="metric-icon blue">▤</span><span class="trend up">↗ 18.2%</span></div><strong>12</strong><span>Documents scanned</span><div class="sparkline blue-line"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+          <article class="metric-card"><div class="metric-top"><span class="metric-icon coral">⌁</span><span class="trend up">↗ 6.4%</span></div><strong>38</strong><span>Key findings extracted</span><div class="sparkline coral-line"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+          <article class="metric-card"><div class="metric-top"><span class="metric-icon amber">!</span><span class="trend neutral">This week</span></div><strong>4</strong><span>Needs your attention</span><div class="priority-bar"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+          <article class="metric-card accent-card"><div class="metric-top"><span class="metric-icon dark">◒</span><span class="trend dark-trend">Healthy</span></div><strong>96<span>%</span></strong><span>Data completeness</span><div class="completeness"><i></i></div></article>
+        </section>
+
+        <section class="content-grid">
+          <div class="documents-panel panel">
+            <div class="section-heading"><div><span class="eyebrow">CURRENT REVIEW</span><h3>Current document</h3></div><button class="text-btn" id="viewAllBtn">Upload another <span>＋</span></button></div>
+            <div class="document-list" id="documentList"><div class="empty-documents" id="emptyDocuments">Upload a document to begin reviewing it.</div></div>
+          </div>
+
+          <div class="insights-panel panel"><div class="section-heading"><div><span class="eyebrow">AI INSIGHTS</span><h3>What needs attention</h3></div><span class="live-dot">● Live</span></div><div class="insight-list"><button class="insight-item selected" data-finding="Payment deadline"><span class="finding-icon coral">!</span><span><strong>Payment deadline in 5 days</strong><small>Acme Vendor Agreement · Page 4</small></span><span class="chevron">›</span></button><button class="insight-item" data-finding="Missing data"><span class="finding-icon amber">⊘</span><span><strong>Missing termination clause</strong><small>Acme Vendor Agreement · Page 12</small></span><span class="chevron">›</span></button><button class="insight-item" data-finding="Anomaly"><span class="finding-icon violet">≈</span><span><strong>Unusual price variance detected</strong><small>Q3 Financial Report · Page 9</small></span><span class="chevron">›</span></button><button class="insight-item" data-finding="Obligation"><span class="finding-icon blue">✓</span><span><strong>Renewal obligation identified</strong><small>ISO 27001 Compliance · Page 28</small></span><span class="chevron">›</span></button></div><button class="full-btn" id="findingsBtn">Review all findings <span>→</span></button></div>
+        </section>
+
+        <section class="document-workspace panel empty-workspace"><div class="section-heading"><div><span class="eyebrow">DOCUMENT WORKSPACE</span><h3 id="selectedDocumentTitle">No document selected</h3><p class="workspace-meta" id="selectedDocumentMeta">Upload a file to start a private review</p></div><div class="workspace-actions"><span class="confidence">Waiting for file</span><button class="secondary-btn" id="removeSelectedBtn">Remove file</button></div></div><div class="workspace-grid"><div class="document-analysis"><div class="source-preview"><div class="paper-toolbar"><span id="sourceDocumentName">Current document</span><span>Source preview</span></div><div class="paper"><p class="muted-line">YOUR DOCUMENT WILL APPEAR HERE</p><p>Upload one PDF, DOC, DOCX, TXT, or RTF file to see its source-backed analysis.</p><span class="source-tag">Waiting for upload</span></div></div><div class="document-summary"><span class="detail-label">AI SUMMARY FOR THIS DOCUMENT</span><p id="documentSummary">Your document summary and extracted findings will appear here after upload.</p><div class="detail-grid"><div><span class="detail-label">DOCUMENT TYPE</span><strong id="documentType">—</strong></div><div><span class="detail-label">KEY VALUE</span><strong>—</strong></div><div><span class="detail-label">FINDINGS</span><strong>—</strong></div><div><span class="detail-label">STATUS</span><strong class="status-text">Waiting</strong></div></div></div></div><div class="document-chat"><div class="chat-heading"><div><span class="eyebrow">ASK THIS FILE</span><h3>AI document chat</h3></div><span class="grounded-pill">⌁ Source-grounded</span></div><div class="chat-messages" id="chatMessages"><div class="chat-message ai"><span class="chat-avatar">✦</span><div><p>Upload a document and I will answer questions about that file only.</p><small>AI assistant · waiting for selected file</small></div></div><div class="chat-suggestion"><button data-question="What are the biggest risks in this document?">Biggest risks?</button><button data-question="List every payment obligation.">Payment obligations?</button></div></div><form class="chat-form" id="chatForm"><input id="chatInput" autocomplete="off" placeholder="Ask about this document..." aria-label="Ask about this document" /><button type="submit" aria-label="Send question">↑</button></form><p class="chat-disclaimer">Answers are limited to the selected file.</p></div></div></section>
+        <footer><span>DocScan AI <b>·</b> Your documents stay yours.</span><span class="copyright">© 2026 Supratik Saha. All rights reserved.</span><span><i class="secure-dot"></i> Secure workspace <b>·</b> Last synced just now</span></footer>
+      </main>
+    </div>
+
+    <div class="modal-backdrop" id="settingsModal" hidden><div class="modal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle"><button class="modal-close" id="closeSettings" aria-label="Close settings">×</button><span class="eyebrow accent">AI SETTINGS</span><h2 id="settingsTitle">Connect your AI provider</h2><p>Paste your provider key here to enable document chat. It is stored only on this device in this prototype; use a server-side route before production.</p><label for="apiKey">API key</label><div class="key-input"><input id="apiKey" type="password" placeholder="sk-or-v1-..." autocomplete="off" /><button id="toggleKey" aria-label="Show API key">Show</button></div><label for="provider">Provider</label><select id="provider"><option>OpenRouter</option><option>OpenAI compatible API</option><option>Anthropic</option><option>Google Gemini</option><option>Custom endpoint</option></select><button class="primary-btn wide" id="saveSettings">Save connection</button><p class="modal-note" id="settingsNote">No provider connected. Add your API key to enable AI analysis.</p></div></div>
+    <div class="modal-backdrop" id="authModal" hidden><div class="modal" role="dialog" aria-modal="true" aria-labelledby="authTitle"><button class="modal-close" id="closeAuth" aria-label="Close authentication">×</button><span class="eyebrow accent">FIREBASE AUTH</span><h2 id="authTitle">Sign in to your workspace</h2><p>Use Firebase Authentication to keep each team's documents private and available across devices.</p><button class="provider-btn" id="googleSignInBtn"><span class="google-g">G</span> Continue with Google</button><div class="auth-divider"><span>or use email</span></div><label for="authEmail">Work email</label><input class="modal-field" id="authEmail" type="email" placeholder="you@company.com" /><label for="authPassword">Password</label><input class="modal-field" id="authPassword" type="password" placeholder="••••••••" /><button class="primary-btn wide" id="signInBtn">Sign in securely</button><button class="guest-btn" id="guestSignInBtn">Continue as guest</button><p class="modal-note" id="authNote">Firebase is ready for your project configuration.</p></div></div>
+    <div class="scan-overlay" id="scanOverlay" hidden><div class="scan-card"><div class="scan-document"><div class="scan-corner top-left"></div><div class="scan-corner top-right"></div><div class="scan-corner bottom-left"></div><div class="scan-corner bottom-right"></div><div class="document-glyph"><span></span><span></span><span></span></div><i class="scan-beam"></i></div><strong>Scanning document</strong><p>Extracting clauses, values, and key dates</p><div class="scan-dots"><i></i><i></i><i></i></div></div></div>
+    <div class="toast" id="toast" role="status"></div>
+    <input type="file" id="fileInput" hidden accept=".pdf,.doc,.docx,.txt,.rtf" />
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
